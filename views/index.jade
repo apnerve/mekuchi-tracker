@@ -3,11 +3,13 @@ extends layout
 block content
   h1 What's the world making?
   ol
-    - for(var i = 0, N = data.length; i < N; i++) { 
-    - var media = data[i].entities.media
-    - if(media) var pic = media[0].media_url
-    - console.log(data[i].text)
-    - if(pic)
-      li.tweet= data[i].text
-        img(src=pic width=200)
-    - }
+    - var mediaArray = []
+    - for(var i = 0, N = data.length; i < N; i++)
+      - var media = data[i].entities.media
+      - if(media) 
+        - var pic = media[0].media_url
+      - console.log(mediaArray)
+      - if(pic && mediaArray.indexOf(pic) == -1)
+        li.tweet
+          img(src=pic width=200)
+        - mediaArray.push(pic)
