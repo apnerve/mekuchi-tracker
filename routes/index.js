@@ -1,9 +1,3 @@
-
-/*
- * GET home page.
- */
-
-
 /*
  * GET home page.
  */
@@ -17,7 +11,7 @@ var twit = new twitter({
 });
 
 exports.index = function(req, res){
-  twit.search('#DIY OR #Make OR #handmade OR #craft filter:links -filter:retweets', {result_type: 'recent', lang: 'en', count: 100},function(data) {
+  twit.search('#DIY OR #Make OR #handmade OR #craft filter:links -filter:retweets', {lang: 'en', count: 100},function(data) {
     res.render('index', {title: 'Mekuchi DIY Tracker', data: data.statuses});
   });
 };
