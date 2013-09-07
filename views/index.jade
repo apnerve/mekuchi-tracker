@@ -2,14 +2,13 @@ extends layout
 
 block content
   h1 What's the world making?
+  h2 Exploring DIY and handmade stuff that people around the world make.
   ol
     - var mediaArray = []
     - for(var i = 0, N = data.length; i < N; i++)
       - var media = data[i].entities.media
-      - if(media) 
-        - var pic = media[0].media_url
-      - console.log(mediaArray)
-      - if(pic && mediaArray.indexOf(pic) == -1)
+      - if(media && media[0].media_url && mediaArray.indexOf(media[0].media_url) == -1)
         li.tweet
-          img(src=pic width=200)
+          img.tweet__img(src=media[0].media_url width=360)
+          span.tweet__text= data[i].text
         - mediaArray.push(pic)
