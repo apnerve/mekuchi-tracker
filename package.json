@@ -8,6 +8,8 @@
   "dependencies": {
     "express": "3.3.8",
     "jade": "*",
-    "twitter": "~0.2.2"
+    "twitter": "~0.2.2",
+    "twitter-text": "~1.6.1",
+    "node-metainspector": "0.0.1"
   }
 }

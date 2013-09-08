@@ -5,10 +5,18 @@ block content
   h2 Discovering DIY projects by people around the world.
   ol
     - var mediaArray = []
-    - for(var i = 0, N = data.length; i < N; i++)
-      - var media = data[i].entities.media
-      - if(media && media[0].media_url && mediaArray.indexOf(media[0].media_url) == -1)
+    - for(var i = 0, N = data.length; i < N; i++) {
+      - (function(i) {
+        - var media = data[i].entities.media        
         li.tweet
-          img.tweet__img(src=media[0].media_url width=360)
+          - if(media)
+            //- console.log(helper.fetch(media[0].media_url))
+            img.tweet__img(src=media[0].media_url width=360)
+            - mediaArray.push(media[0].media_url)
+          - else
+            - helper.fetch(data[i].entities.urls[0].expanded_url);
+            //- - var pic = helper.fetch(data[i].entities.urls[0].expanded_url);
+            //- - console.log(pic);
           span.tweet__text= data[i].text
-        - mediaArray.push(pic)
+      -  })(i);
+    - }
