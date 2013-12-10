@@ -1,4 +1,4 @@
-https://david-dm.org/apnerve/mekuchi-tracker.png
+!(https://david-dm.org/apnerve/mekuchi-tracker.png)
 mekuchi-tracker
 ===============
 
